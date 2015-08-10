@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB05283C-9D15-4130-B9E6-7E6770EE8FB6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AIOSystemUtility3</RootNamespace>
+    <AssemblyName>Otil</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Kriogen\Dropbox\Portfolio\AIO System Monitor Project\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Otil.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EF7F4CE34E68D4919CE5E5619FC63CE012007E88</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AIOSystemUtility3_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>..\AIOSystemUtility\bin\Debug\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddColorScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddColorScheme.Designer.cs">
+      <DependentUpon>AddColorScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Colours.cs" />
+    <Compile Include="Controls\ColourSchemeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColourSchemeSelector.Designer.cs">
+      <DependentUpon>ColourSchemeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CPUCoreControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CPUCoreControl.Designer.cs">
+      <DependentUpon>CPUCoreControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CPUDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CPUDetailControl.Designer.cs">
+      <DependentUpon>CPUDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CPUSimpleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CPUSimpleControl.Designer.cs">
+      <DependentUpon>CPUSimpleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GPUControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GPUControl.Designer.cs">
+      <DependentUpon>GPUControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Grapher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Grapher.Designer.cs">
+      <DependentUpon>Grapher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HDDControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HDDControl.Designer.cs">
+      <DependentUpon>HDDControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HDDsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HDDsControl.Designer.cs">
+      <DependentUpon>HDDsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MemModuleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MemModuleControl.Designer.cs">
+      <DependentUpon>MemModuleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MemoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MemoryControl.Designer.cs">
+      <DependentUpon>MemoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MiscControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MiscControl.Designer.cs">
+      <DependentUpon>MiscControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VirtualNetworkAdapterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VirtualNetworkAdapterControl.Designer.cs">
+      <DependentUpon>VirtualNetworkAdapterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PysicalNetworkAdapterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PysicalNetworkAdapterControl.Designer.cs">
+      <DependentUpon>PysicalNetworkAdapterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NetworkDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NetworkDetailControl.Designer.cs">
+      <DependentUpon>NetworkDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NetworkSimpleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NetworkSimpleControl.Designer.cs">
+      <DependentUpon>NetworkSimpleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PartitionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PartitionControl.Designer.cs">
+      <DependentUpon>PartitionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProcessControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProcessControl.Designer.cs">
+      <DependentUpon>ProcessControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProcessesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProcessesControl.Designer.cs">
+      <DependentUpon>ProcessesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ServiceControl.Designer.cs">
+      <DependentUpon>ServiceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ServicesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ServicesControl.Designer.cs">
+      <DependentUpon>ServicesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StartupProcessControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StartupProcessControl.Designer.cs">
+      <DependentUpon>StartupProcessControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StartupProcessesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StartupProcessesControl.Designer.cs">
+      <DependentUpon>StartupProcessesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\CPUSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\CPUSummary.Designer.cs">
+      <DependentUpon>CPUSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\GPUSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\GPUSummary.Designer.cs">
+      <DependentUpon>GPUSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\RAMSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\RAMSummary.Designer.cs">
+      <DependentUpon>RAMSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\SystemSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\SystemSummary.Designer.cs">
+      <DependentUpon>SystemSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SystemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SystemControl.Designer.cs">
+      <DependentUpon>SystemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces_Supers\NetAdapterControl.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Scrapers\CPUScraper.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scrapers\GPUScraper.cs" />
+    <Compile Include="Scrapers\ScannedObjects\HardDiskDrive.cs" />
+    <Compile Include="Scrapers\HDDScraper.cs" />
+    <Compile Include="Interfaces_Supers\IVisitor.cs" />
+    <Compile Include="Scrapers\ScannedObjects\MemoryModule.cs" />
+    <Compile Include="Scrapers\MoboScraper.cs" />
+    <Compile Include="Scrapers\ScannedObjects\NetworkAdapter.cs" />
+    <Compile Include="Scrapers\NetworkScraper.cs" />
+    <Compile Include="Scrapers\ScannedObjects\Partition.cs" />
+    <Compile Include="Scrapers\ScannedObjects\Process.cs" />
+    <Compile Include="Scrapers\ProcessScraper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scrapers\RAMScraper.cs" />
+    <Compile Include="Interfaces_Supers\Scraper.cs" />
+    <Compile Include="Scrapers\ScannedObjects\Service.cs" />
+    <Compile Include="Scrapers\ServiceScraper.cs" />
+    <Compile Include="Scrapers\ScannedObjects\StartupProcess.cs" />
+    <Compile Include="Scrapers\StartupScraper.cs" />
+    <Compile Include="Scrapers\SystemScraper.cs" />
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="AddColorScheme.resx">
+      <DependentUpon>AddColorScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ColourSchemeSelector.resx">
+      <DependentUpon>ColourSchemeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CPUCoreControl.resx">
+      <DependentUpon>CPUCoreControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CPUDetailControl.resx">
+      <DependentUpon>CPUDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CPUSimpleControl.resx">
+      <DependentUpon>CPUSimpleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GPUControl.resx">
+      <DependentUpon>GPUControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Grapher.resx">
+      <DependentUpon>Grapher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HDDControl.resx">
+      <DependentUpon>HDDControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HDDsControl.resx">
+      <DependentUpon>HDDsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MemModuleControl.resx">
+      <DependentUpon>MemModuleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MemoryControl.resx">
+      <DependentUpon>MemoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MiscControl.resx">
+      <DependentUpon>MiscControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VirtualNetworkAdapterControl.resx">
+      <DependentUpon>VirtualNetworkAdapterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PysicalNetworkAdapterControl.resx">
+      <DependentUpon>PysicalNetworkAdapterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NetworkDetailControl.resx">
+      <DependentUpon>NetworkDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NetworkSimpleControl.resx">
+      <DependentUpon>NetworkSimpleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PartitionControl.resx">
+      <DependentUpon>PartitionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProcessControl.resx">
+      <DependentUpon>ProcessControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProcessesControl.resx">
+      <DependentUpon>ProcessesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ServiceControl.resx">
+      <DependentUpon>ServiceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ServicesControl.resx">
+      <DependentUpon>ServicesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StartupProcessControl.resx">
+      <DependentUpon>StartupProcessControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StartupProcessesControl.resx">
+      <DependentUpon>StartupProcessesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SummaryControls\CPUSummary.resx">
+      <DependentUpon>CPUSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SummaryControls\GPUSummary.resx">
+      <DependentUpon>GPUSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SummaryControls\RAMSummary.resx">
+      <DependentUpon>RAMSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SummaryControls\SystemSummary.resx">
+      <DependentUpon>SystemSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SystemControl.resx">
+      <DependentUpon>SystemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="AIOSystemUtility3_TemporaryKey.pfx" />
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Otil.ico" />
+    <Content Include="Otil1.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

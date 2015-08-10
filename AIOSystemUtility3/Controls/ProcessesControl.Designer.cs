@@ -1,0 +1,102 @@
+﻿namespace AIOSystemUtility3
+{
+    partial class ProcessesControl
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label2 = new System.Windows.Forms.Label();
+            this.TotalProcessesTxt = new System.Windows.Forms.Label();
+            this.ProcessPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "Processes:";
+            // 
+            // TotalProcessesTxt
+            // 
+            this.TotalProcessesTxt.AutoSize = true;
+            this.TotalProcessesTxt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalProcessesTxt.Location = new System.Drawing.Point(132, 89);
+            this.TotalProcessesTxt.Name = "TotalProcessesTxt";
+            this.TotalProcessesTxt.Size = new System.Drawing.Size(20, 25);
+            this.TotalProcessesTxt.TabIndex = 64;
+            this.TotalProcessesTxt.Text = "-";
+            // 
+            // ProcessPanel
+            // 
+            this.ProcessPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProcessPanel.AutoScroll = true;
+            this.ProcessPanel.Location = new System.Drawing.Point(39, 117);
+            this.ProcessPanel.Name = "ProcessPanel";
+            this.ProcessPanel.Size = new System.Drawing.Size(533, 585);
+            this.ProcessPanel.TabIndex = 60;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 65);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Processes";
+            // 
+            // ProcessesControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TotalProcessesTxt);
+            this.Controls.Add(this.ProcessPanel);
+            this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
+            this.Name = "ProcessesControl";
+            this.Size = new System.Drawing.Size(600, 726);
+            this.VisibleChanged += new System.EventHandler(this.ProcessesControl_VisibleChanged);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TotalProcessesTxt;
+        private System.Windows.Forms.Panel ProcessPanel;
+        private System.Windows.Forms.Label label1;
+    }
+}
