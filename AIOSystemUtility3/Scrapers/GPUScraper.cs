@@ -118,7 +118,7 @@ namespace AIOSystemUtility3
                             // Temperature
                             if (sensor.SensorType == SensorType.Temperature && sensor.Name.Equals("GPU Core"))
                             {
-                                GPUTemp = sensor.Value == null ? "Unknown" : sensor.Value + " °C";
+                                GPUTemp = sensor.Value == null ? "Unknown" : ((float)sensor.Value).ToString("0.00 °C");// +" °C";
                                 GPUTempDouble = sensor.Value == null ? 0 : (double)(float)sensor.Value;
                             }
 

@@ -164,6 +164,12 @@
     <Compile Include="Controls\MiscControl.Designer.cs">
       <DependentUpon>MiscControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SummaryControls\NETSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SummaryControls\NETSummary.Designer.cs">
+      <DependentUpon>NETSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VirtualNetworkAdapterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MiscControl.resx">
       <DependentUpon>MiscControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SummaryControls\NETSummary.resx">
+      <DependentUpon>NETSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\VirtualNetworkAdapterControl.resx">
       <DependentUpon>VirtualNetworkAdapterControl.cs</DependentUpon>

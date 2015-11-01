@@ -48,6 +48,7 @@ namespace AIOSystemUtility3
         CPUSummary CPUSum = new CPUSummary();
         GPUSummary GPUSum = new GPUSummary();
         RAMSummary RAMSum = new RAMSummary();
+        NETSummary NETSum = new NETSummary();
 
         // Index of selected page
         int PageIndex = 0;
@@ -77,6 +78,7 @@ namespace AIOSystemUtility3
             SummaryPanel.Controls.Add(CPUSum);
             SummaryPanel.Controls.Add(GPUSum);
             SummaryPanel.Controls.Add(RAMSum);
+            SummaryPanel.Controls.Add(NETSum);
             AddControlsToSummary();
 
             StartPosition = FormStartPosition.CenterScreen;
@@ -192,6 +194,7 @@ namespace AIOSystemUtility3
             CPUSum.UpdateColour();
             GPUSum.UpdateColour();
             RAMSum.UpdateColour();
+            NETSum.UpdateColour();
         }
 
         private void SystemBtn_Click(object sender, EventArgs e)
@@ -277,6 +280,27 @@ namespace AIOSystemUtility3
             Sys.Lock.WaitOne();
             Sys.StopScraping();
             Sys.Lock.Release();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                notifyIcon1.Visible = false;
+            }
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

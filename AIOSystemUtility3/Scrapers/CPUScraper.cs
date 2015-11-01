@@ -168,7 +168,7 @@ namespace AIOSystemUtility3
                         if (sensor.SensorType == SensorType.Temperature)
                         {
                             CPUTempDouble = sensor.Value == null ? 0 : (double)(float)sensor.Value;
-                            CPUTemp = CPUTempDouble + " °C";
+                            CPUTemp = CPUTempDouble.ToString("0.00 °C");// +" °C";
                         }
                         if (sensor.Name.Equals("Bus Speed"))
                         {

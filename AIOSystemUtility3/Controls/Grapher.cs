@@ -97,8 +97,8 @@ namespace AIOSystemUtility3
                     float x2 = (y + 1) * this.Width / ((points.Length / sets) - 1);
                     float y2 = (float)Math.Round((this.Height - ((this.Height * points[x, y + 1]) / max)), 5); // was 100
 
-                    if (float.IsNegativeInfinity(y1)) y1 = 0;
-                    if (float.IsNegativeInfinity(y2)) y2 = 0;
+                    if (float.IsNegativeInfinity(y1) || float.IsNaN(y1)) y1 = 0;
+                    if (float.IsNegativeInfinity(y2) || float.IsNaN(y2)) y2 = 0;
                     if (float.IsPositiveInfinity(y1)) y1 = this.Height;
                     if (float.IsPositiveInfinity(y2)) y2 = this.Height;
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.spacerPanel = new System.Windows.Forms.Panel();
@@ -45,6 +46,7 @@
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.DevLabel = new System.Windows.Forms.Label();
             this.SummaryPanel = new System.Windows.Forms.Panel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.MenuPanel.SuspendLayout();
             this.spacerPanel.SuspendLayout();
             this.ContentPanel.SuspendLayout();
@@ -318,6 +320,14 @@
             this.SummaryPanel.Size = new System.Drawing.Size(229, 725);
             this.SummaryPanel.TabIndex = 2;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipText = "Otil has minimised to system tray. Double click to reopen.";
+            this.notifyIcon1.BalloonTipTitle = "Otil - Freshly Squeezed";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Otil";
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +341,7 @@
             this.Name = "Form1";
             this.Text = "Otil - Freshly Squeezed";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.MenuPanel.ResumeLayout(false);
             this.spacerPanel.ResumeLayout(false);
             this.spacerPanel.PerformLayout();
@@ -358,6 +369,7 @@
         private System.Windows.Forms.Panel spacerPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label DevLabel;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
 
 
     }
