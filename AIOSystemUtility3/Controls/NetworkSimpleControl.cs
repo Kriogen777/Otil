@@ -123,8 +123,10 @@ namespace AIOSystemUtility3
 
         private void DetailsBtn_Click_1(object sender, EventArgs e)
         {
-            NetworkSimplePanel.Visible = false;
-            NetDetail.Visible = true;  
+            //NetworkSimplePanel.Visible = false;
+            //NetDetail.Visible = true;  
+            Utils.Animate(NetworkSimplePanel, Utils.Effect.Slide, 150, 180, true);
+            Utils.Animate(NetDetail, Utils.Effect.Slide, 150, 180, true);
         }
     }
 }

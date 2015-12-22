@@ -35,14 +35,17 @@ namespace AIOSystemUtility3
         {
             if (!CPUDetail.Visible)
             {
-                CPUSimplePanel.Visible = true;
+                //CPUSimplePanel.Visible = true;
+                Utils.Animate(CPUSimplePanel, Utils.Effect.Slide, 150, 0, true);
             }
         }
 
         private void DetailsBtn_Click(object sender, EventArgs e)
         {
-            CPUSimplePanel.Visible = false;
-            CPUDetail.Visible = true;
+            //CPUSimplePanel.Visible = false;
+            //CPUDetail.Visible = true;
+            Utils.Animate(CPUSimplePanel, Utils.Effect.Slide, 150, 180, true);
+            Utils.Animate(CPUDetail, Utils.Effect.Slide, 150, 180, true);
         }
 
         public void Update(Scraper s)

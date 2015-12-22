@@ -40,7 +40,7 @@
             this.DownTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DownTxt.AutoSize = true;
             this.DownTxt.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DownTxt.Location = new System.Drawing.Point(82, 103);
+            this.DownTxt.Location = new System.Drawing.Point(67, 102);
             this.DownTxt.Name = "DownTxt";
             this.DownTxt.Size = new System.Drawing.Size(28, 37);
             this.DownTxt.TabIndex = 23;
@@ -72,7 +72,7 @@
             this.UpTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UpTxt.AutoSize = true;
             this.UpTxt.Font = new System.Drawing.Font("Segoe UI Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpTxt.Location = new System.Drawing.Point(82, 65);
+            this.UpTxt.Location = new System.Drawing.Point(39, 65);
             this.UpTxt.Name = "UpTxt";
             this.UpTxt.Size = new System.Drawing.Size(28, 37);
             this.UpTxt.TabIndex = 20;
@@ -89,7 +89,7 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Up:";
             // 
-            // GPUSummary
+            // NETSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,7 +98,7 @@
             this.Controls.Add(this.gpu);
             this.Controls.Add(this.UpTxt);
             this.Controls.Add(this.label2);
-            this.Name = "GPUSummary";
+            this.Name = "NETSummary";
             this.Size = new System.Drawing.Size(210, 146);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Management;
 using System.Timers;
 
@@ -52,7 +54,18 @@ namespace AIOSystemUtility3
                     Utils.Try(() => temp.ThreadCount = (int)(uint)share["ThreadCount"]);
                     Utils.Try(() => temp.WorkingSetSize = (long)(ulong)share["WorkingSetPrivate"]);
                     Utils.Try(() => temp.ProcessorUse = (long)(ulong)share["PercentProcessorTime"]);
-                    temp.ProcessID = processID.ToString(); 
+                    temp.ProcessID = processID.ToString();
+
+                    try
+                    {
+                        System.Diagnostics.Process processToFetchIcon = System.Diagnostics.Process.GetProcessById(processID);
+                        temp.ProcessIcon = Icon.ExtractAssociatedIcon(processToFetchIcon.MainModule.FileName);
+                    }
+                    catch (Exception ex)
+                    {
+                        //Console.WriteLine("Error fetching icon: " + ex.Message);
+                    }
+
                     temp.CheckedThisUpdate = true;
                     Processes.Add(processID, temp);
                 }

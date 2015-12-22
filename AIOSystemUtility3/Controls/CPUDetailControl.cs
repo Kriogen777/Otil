@@ -128,7 +128,8 @@ namespace AIOSystemUtility3
 
         private void DetailsBtn_Click(object sender, EventArgs e)
         {
-            Visible = false;
+            //Visible = false;
+            Utils.Animate(this, Utils.Effect.Slide, 150, 0, true);
         }
 
         private void CPUDetailControl_Resize(object sender, EventArgs e)

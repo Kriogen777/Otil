@@ -43,6 +43,9 @@ namespace AIOSystemUtility3
 
         MiscControl MiscCon = null;
 
+        // renderedOnce [] - horrible animation hack
+        bool[] renderedOnce = { false, false, false, false, false, false, false, false, false, false, false};
+
         // Summary controls - to be scripted later
         SystemSummary SysSum = new SystemSummary();
         CPUSummary CPUSum = new CPUSummary();
@@ -51,7 +54,7 @@ namespace AIOSystemUtility3
         NETSummary NETSum = new NETSummary();
 
         // Index of selected page
-        int PageIndex = 0;
+        int PageIndex = -1; // defaulted to impossible index to always draw the first time
         Button PageButton = null;
 
         public Form1()
@@ -73,7 +76,7 @@ namespace AIOSystemUtility3
             ContentPanel.Controls.Add(StartupCon);
             MiscCon = new MiscControl(this);
             ContentPanel.Controls.Add(MiscCon);
-
+            
             SummaryPanel.Controls.Add(SysSum);
             SummaryPanel.Controls.Add(CPUSum);
             SummaryPanel.Controls.Add(GPUSum);
@@ -109,6 +112,22 @@ namespace AIOSystemUtility3
 
         private void SwitchControls(int index)
         {
+            int angle = 270; // From below
+            if (index < PageIndex) angle = 90; // From above
+
+            bool animate = true;
+            if (PageIndex == index) animate = false;
+
+            // Animate away currently visible control
+            foreach (Control c in ContentPanel.Controls)
+            {
+                if (c.Visible)
+                {
+                    if (animate) Utils.Animate(c, Utils.Effect.Slide, 100, angle, renderedOnce[index]);
+                    else c.Visible = false;
+                }
+            }
+
             PageIndex = index;
             try
             {
@@ -119,25 +138,27 @@ namespace AIOSystemUtility3
             {
                 Console.WriteLine(ex);
             }
-            foreach (Control c in ContentPanel.Controls)
-            {
-                c.Visible = false;
-            }
-            // Animate :D
+            
+            
+            UserControl displayMe = null;
             switch (index)
             {
-                case 0: SysCon.Visible = true; break;
-                case 1: CPUSimpleCon.Visible = true; break;
-                case 2: GPUCon.Visible = true; break;
-                case 3: RAMCon.Visible = true; break;
-                case 4: HDDsCon.Visible = true; break;
-                case 5: NetCon.Visible = true; break;
+                case 0: displayMe = SysCon; break;
+                case 1: displayMe = CPUSimpleCon; break;
+                case 2: displayMe = GPUCon; break;
+                case 3: displayMe = RAMCon; break;
+                case 4: displayMe = HDDsCon; break;
+                case 5: displayMe = NetCon; break;
                 case 6: break; // Motherboard - now on system
-                case 7: ProcessesCon.Visible = true; break;
-                case 8: ServicesCon.Visible = true; break;
-                case 9: StartupCon.Visible = true; break;
-                case 10: MiscCon.Visible = true; break;
+                case 7: displayMe = ProcessesCon; break;
+                case 8: displayMe = ServicesCon; break;
+                case 9: displayMe = StartupCon; break;
+                case 10: displayMe = MiscCon; break;
             }
+            if (animate) Utils.Animate(displayMe, Utils.Effect.Slide, 100, angle, renderedOnce[index]);
+            else displayMe.Visible = true;
+            renderedOnce[index] = true;
+            
             switch (index)
             {
                 case 0: SwitchColours(SystemBtn);

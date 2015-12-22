@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace AIOSystemUtility3
 {
@@ -11,7 +12,7 @@ namespace AIOSystemUtility3
         public long WorkingSetSize { get; set; }
         // Remove dead processes check
         public bool CheckedThisUpdate = false;
-
+        public Icon ProcessIcon { get; set; }
         public int CompareTo(Process p)
         {
             //int comp = (int)(p.ProcessorUse - this.ProcessorUse);

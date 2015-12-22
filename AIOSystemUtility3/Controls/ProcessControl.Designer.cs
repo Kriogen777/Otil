@@ -39,6 +39,8 @@
             this.ProcessorUseTxt = new System.Windows.Forms.Label();
             this.WorkingSetSizeTxt = new System.Windows.Forms.Label();
             this.SystemBtn = new System.Windows.Forms.Button();
+            this.ProcessIcon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // NameTxt
@@ -160,10 +162,22 @@
             this.SystemBtn.UseVisualStyleBackColor = false;
             this.SystemBtn.Click += new System.EventHandler(this.SystemBtn_Click);
             // 
+            // ProcessIcon
+            // 
+            this.ProcessIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProcessIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ProcessIcon.Location = new System.Drawing.Point(394, 11);
+            this.ProcessIcon.Name = "ProcessIcon";
+            this.ProcessIcon.Size = new System.Drawing.Size(117, 90);
+            this.ProcessIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ProcessIcon.TabIndex = 77;
+            this.ProcessIcon.TabStop = false;
+            // 
             // ProcessControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ProcessIcon);
             this.Controls.Add(this.SystemBtn);
             this.Controls.Add(this.ProcessorUseTxt);
             this.Controls.Add(this.WorkingSetSizeTxt);
@@ -178,6 +192,7 @@
             this.Name = "ProcessControl";
             this.Size = new System.Drawing.Size(525, 150);
             this.MouseEnter += new System.EventHandler(this.ProcessControl_MouseEnter);
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +211,6 @@
         private System.Windows.Forms.Label ProcessorUseTxt;
         private System.Windows.Forms.Label WorkingSetSizeTxt;
         private System.Windows.Forms.Button SystemBtn;
+        private System.Windows.Forms.PictureBox ProcessIcon;
     }
 }

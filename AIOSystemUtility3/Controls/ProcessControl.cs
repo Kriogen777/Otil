@@ -14,6 +14,10 @@ namespace AIOSystemUtility3
             | System.Windows.Forms.AnchorStyles.Right)));
             this.parent = parent;
             Width = parent.Width - 4;
+            if (process.ProcessIcon != null)
+            {
+                ProcessIcon.Image = process.ProcessIcon.ToBitmap();
+            }
             Update(process);
         }
 
