@@ -66,7 +66,7 @@
             this.DetailsTxt.Font = new System.Drawing.Font("Segoe UI Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailsTxt.Location = new System.Drawing.Point(231, 38);
             this.DetailsTxt.Name = "DetailsTxt";
-            this.DetailsTxt.Size = new System.Drawing.Size(347, 47);
+            this.DetailsTxt.Size = new System.Drawing.Size(347, 40);
             this.DetailsTxt.TabIndex = 78;
             this.DetailsTxt.Text = "Details";
             this.DetailsTxt.TextAlign = System.Drawing.ContentAlignment.TopRight;

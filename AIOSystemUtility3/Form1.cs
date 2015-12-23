@@ -14,6 +14,9 @@ namespace AIOSystemUtility3
         private const uint WM_SETICON = 0x80u;
         private const int ICON_SMALL = 0;
 
+        // Tray Icon
+        int trayMeasure = 0;
+        System.Timers.Timer iconDrawTimer = new System.Timers.Timer(1000);
 
         // Colours
         Colours colours = Colours.GetInstance();
@@ -57,13 +60,18 @@ namespace AIOSystemUtility3
         int PageIndex = -1; // defaulted to impossible index to always draw the first time
         Button PageButton = null;
 
+        
+
         public Form1()
         {
             InitializeComponent();
+            // Icon stuff
             using (Bitmap emptyImage = new Bitmap(1, 1))
             {
                 SendMessage(this.Handle, WM_SETICON, ICON_SMALL, emptyImage.GetHicon());
             }
+            iconDrawTimer.Elapsed += iconDrawTimer_Elapsed;
+            iconDrawTimer.Start();
 
             ContentPanel.Controls.Add(SysCon);
             ContentPanel.Controls.Add(CPUSimpleCon);
@@ -100,6 +108,38 @@ namespace AIOSystemUtility3
             Console.WriteLine("=============== NOW LET THE STORY BEGIN ===============");
         }
 
+        // Update Tray Icon
+        void iconDrawTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            if (notifyIcon1 != null)
+            {
+                if (trayMeasure == 0)
+                {
+                    CPU.Lock.WaitOne();
+                    notifyIcon1.Icon = Utils.GetIcon(CPU.CurrentUtilizationPercent.ToString("0."));
+                    CPU.Lock.Release();
+                }
+                else if (trayMeasure == 1)
+                {
+                    CPU.Lock.WaitOne();
+                    notifyIcon1.Icon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0."));
+                    CPU.Lock.Release();
+                }
+                else if (trayMeasure == 2)
+                {
+                    GPU.Lock.WaitOne();
+                    notifyIcon1.Icon = Utils.GetIcon(GPU.Utilization.ToString("0."));
+                    GPU.Lock.Release();
+                }
+                else if (trayMeasure == 3)
+                {
+                    GPU.Lock.WaitOne();
+                    notifyIcon1.Icon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0."));
+                    GPU.Lock.Release();
+                }
+            }
+        }
+
         private void AddControlsToSummary()
         {
             int top = 0;
@@ -124,7 +164,7 @@ namespace AIOSystemUtility3
                 if (c.Visible)
                 {
                     if (animate) Utils.Animate(c, Utils.Effect.Slide, 100, angle, renderedOnce[index]);
-                    else c.Visible = false;
+                    //else c.Visible = false;
                 }
             }
 
@@ -156,7 +196,7 @@ namespace AIOSystemUtility3
                 case 10: displayMe = MiscCon; break;
             }
             if (animate) Utils.Animate(displayMe, Utils.Effect.Slide, 100, angle, renderedOnce[index]);
-            else displayMe.Visible = true;
+            else if (!renderedOnce[index]) displayMe.Visible = true;
             renderedOnce[index] = true;
             
             switch (index)
@@ -301,6 +341,9 @@ namespace AIOSystemUtility3
             Sys.Lock.WaitOne();
             Sys.StopScraping();
             Sys.Lock.Release();
+
+
+            iconDrawTimer.Stop();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -322,6 +365,45 @@ namespace AIOSystemUtility3
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void cPUUtilisationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(ToolStripMenuItem item in TrayIconContextMenu.Items){
+                item.Checked = false;
+            }
+            cPUUtilisationToolStripMenuItem.Checked = true;
+            trayMeasure = 0;
+        }
+
+        private void cPUTemperatureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in TrayIconContextMenu.Items)
+            {
+                item.Checked = false;
+            }
+            cPUTemperatureToolStripMenuItem.Checked = true;
+            trayMeasure = 1;
+        }
+
+        private void gPUUtilizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in TrayIconContextMenu.Items)
+            {
+                item.Checked = false;
+            }
+            gPUUtilizationToolStripMenuItem.Checked = true;
+            trayMeasure = 2;
+        }
+
+        private void gPUTemperatureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in TrayIconContextMenu.Items)
+            {
+                item.Checked = false;
+            }
+            gPUTemperatureToolStripMenuItem.Checked = true;
+            trayMeasure = 3;
         }
     }
 }

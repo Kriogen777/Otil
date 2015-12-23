@@ -46,8 +46,14 @@
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.SummaryPanel = new System.Windows.Forms.Panel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cPUUtilisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cPUTemperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gPUUtilizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gPUTemperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPanel.SuspendLayout();
             this.spacerPanel.SuspendLayout();
+            this.TrayIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
@@ -309,9 +315,50 @@
             // 
             this.notifyIcon1.BalloonTipText = "Otil has minimised to system tray. Double click to reopen.";
             this.notifyIcon1.BalloonTipTitle = "Otil - Freshly Squeezed";
+            this.notifyIcon1.ContextMenuStrip = this.TrayIconContextMenu;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Otil";
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
+            // TrayIconContextMenu
+            // 
+            this.TrayIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cPUUtilisationToolStripMenuItem,
+            this.cPUTemperatureToolStripMenuItem,
+            this.gPUUtilizationToolStripMenuItem,
+            this.gPUTemperatureToolStripMenuItem});
+            this.TrayIconContextMenu.Name = "contextMenuStrip1";
+            this.TrayIconContextMenu.Size = new System.Drawing.Size(168, 114);
+            // 
+            // cPUUtilisationToolStripMenuItem
+            // 
+            this.cPUUtilisationToolStripMenuItem.Checked = true;
+            this.cPUUtilisationToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cPUUtilisationToolStripMenuItem.Name = "cPUUtilisationToolStripMenuItem";
+            this.cPUUtilisationToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.cPUUtilisationToolStripMenuItem.Text = "CPU Utilization";
+            this.cPUUtilisationToolStripMenuItem.Click += new System.EventHandler(this.cPUUtilisationToolStripMenuItem_Click);
+            // 
+            // cPUTemperatureToolStripMenuItem
+            // 
+            this.cPUTemperatureToolStripMenuItem.Name = "cPUTemperatureToolStripMenuItem";
+            this.cPUTemperatureToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.cPUTemperatureToolStripMenuItem.Text = "CPU Temperature";
+            this.cPUTemperatureToolStripMenuItem.Click += new System.EventHandler(this.cPUTemperatureToolStripMenuItem_Click);
+            // 
+            // gPUUtilizationToolStripMenuItem
+            // 
+            this.gPUUtilizationToolStripMenuItem.Name = "gPUUtilizationToolStripMenuItem";
+            this.gPUUtilizationToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.gPUUtilizationToolStripMenuItem.Text = "GPU Utilization";
+            this.gPUUtilizationToolStripMenuItem.Click += new System.EventHandler(this.gPUUtilizationToolStripMenuItem_Click);
+            // 
+            // gPUTemperatureToolStripMenuItem
+            // 
+            this.gPUTemperatureToolStripMenuItem.Name = "gPUTemperatureToolStripMenuItem";
+            this.gPUTemperatureToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.gPUTemperatureToolStripMenuItem.Text = "GPU Temperature";
+            this.gPUTemperatureToolStripMenuItem.Click += new System.EventHandler(this.gPUTemperatureToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -330,6 +377,7 @@
             this.MenuPanel.ResumeLayout(false);
             this.spacerPanel.ResumeLayout(false);
             this.spacerPanel.PerformLayout();
+            this.TrayIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -352,6 +400,11 @@
         private System.Windows.Forms.Panel spacerPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip TrayIconContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem cPUUtilisationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cPUTemperatureToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gPUUtilizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gPUTemperatureToolStripMenuItem;
 
 
     }

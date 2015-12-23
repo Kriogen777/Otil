@@ -196,7 +196,7 @@
             this.OverviewTxt.Font = new System.Drawing.Font("Segoe UI Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OverviewTxt.Location = new System.Drawing.Point(237, 38);
             this.OverviewTxt.Name = "OverviewTxt";
-            this.OverviewTxt.Size = new System.Drawing.Size(350, 47);
+            this.OverviewTxt.Size = new System.Drawing.Size(350, 40);
             this.OverviewTxt.TabIndex = 78;
             this.OverviewTxt.Text = "Overview";
             this.OverviewTxt.TextAlign = System.Drawing.ContentAlignment.TopRight;

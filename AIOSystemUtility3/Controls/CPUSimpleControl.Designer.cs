@@ -71,7 +71,7 @@
             this.CPUNameTxt.Font = new System.Drawing.Font("Segoe UI Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CPUNameTxt.Location = new System.Drawing.Point(237, 48);
             this.CPUNameTxt.Name = "CPUNameTxt";
-            this.CPUNameTxt.Size = new System.Drawing.Size(347, 47);
+            this.CPUNameTxt.Size = new System.Drawing.Size(347, 40);
             this.CPUNameTxt.TabIndex = 14;
             this.CPUNameTxt.Text = "Unknown";
             this.CPUNameTxt.TextAlign = System.Drawing.ContentAlignment.TopRight;
