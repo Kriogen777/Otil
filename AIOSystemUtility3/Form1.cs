@@ -122,7 +122,7 @@ namespace AIOSystemUtility3
                 else if (trayMeasure == 1)
                 {
                     CPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0."));
+                    notifyIcon1.Icon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0.°"));
                     CPU.Lock.Release();
                 }
                 else if (trayMeasure == 2)
@@ -134,7 +134,7 @@ namespace AIOSystemUtility3
                 else if (trayMeasure == 3)
                 {
                     GPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0."));
+                    notifyIcon1.Icon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0.°"));
                     GPU.Lock.Release();
                 }
             }
