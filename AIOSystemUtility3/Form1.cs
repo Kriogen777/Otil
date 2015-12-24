@@ -17,7 +17,7 @@ namespace AIOSystemUtility3
         // Tray Icon
         int trayMeasure = 0;
         System.Timers.Timer iconDrawTimer = new System.Timers.Timer(1000);
-
+        
         // Colours
         Colours colours = Colours.GetInstance();
 
@@ -111,6 +111,7 @@ namespace AIOSystemUtility3
         // Update Tray Icon
         void iconDrawTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            iconDrawTimer.Stop(); // Keeps the timer from spawning many threads all waiting for the locks
             if (notifyIcon1 != null)
             {
                 if (trayMeasure == 0)
@@ -138,6 +139,7 @@ namespace AIOSystemUtility3
                     GPU.Lock.Release();
                 }
             }
+            iconDrawTimer.Start();
         }
 
         private void AddControlsToSummary()
@@ -341,7 +343,6 @@ namespace AIOSystemUtility3
             Sys.Lock.WaitOne();
             Sys.StopScraping();
             Sys.Lock.Release();
-
 
             iconDrawTimer.Stop();
         }

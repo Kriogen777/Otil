@@ -41,7 +41,7 @@
             this.OverviewBtn.FlatAppearance.BorderSize = 0;
             this.OverviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OverviewBtn.Font = new System.Drawing.Font("Segoe UI Light", 10.25F);
-            this.OverviewBtn.Location = new System.Drawing.Point(1, 699);
+            this.OverviewBtn.Location = new System.Drawing.Point(1, 700);
             this.OverviewBtn.Name = "OverviewBtn";
             this.OverviewBtn.Size = new System.Drawing.Size(598, 26);
             this.OverviewBtn.TabIndex = 79;

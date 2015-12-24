@@ -105,7 +105,7 @@
             this.DetailsBtn.FlatAppearance.BorderSize = 0;
             this.DetailsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DetailsBtn.Font = new System.Drawing.Font("Segoe UI Light", 10.25F);
-            this.DetailsBtn.Location = new System.Drawing.Point(1, 699);
+            this.DetailsBtn.Location = new System.Drawing.Point(1, 700);
             this.DetailsBtn.Name = "DetailsBtn";
             this.DetailsBtn.Size = new System.Drawing.Size(598, 26);
             this.DetailsBtn.TabIndex = 79;
