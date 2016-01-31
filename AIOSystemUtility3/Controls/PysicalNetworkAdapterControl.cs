@@ -24,8 +24,10 @@ namespace AIOSystemUtility3
 
         private void UpdateGraph_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            UpdateGraph.Stop();
             grapher1.UpdateGraph(0, Adapter.KBSRecievedFloat);
             grapher1.UpdateGraph(1, Adapter.KBSSentFloat);
+            UpdateGraph.Start();
         }
 
         public void Update(NetworkAdapter Adapter)

@@ -29,9 +29,11 @@ namespace AIOSystemUtility3
 
         void UpdateGraph_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            UpdateGraph.Stop();
             CPU.Lock.WaitOne();
             grapher1.UpdateGraph(0, CPU.CoreUtilizationPercent[index]);
             CPU.Lock.Release();
+            UpdateGraph.Start();
         }
 
         public void Update(double speed, double multiplier)

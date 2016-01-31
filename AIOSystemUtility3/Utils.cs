@@ -75,32 +75,41 @@ namespace AIOSystemUtility3
         // Solution to draw text onto an Icon from : http://stackoverflow.com/a/5966965/4331033
         public static Icon GetIcon(string text)
         {
-            //Create bitmap, kind of canvas
-            Bitmap bitmap = new Bitmap(32, 32);
+            Icon createdIcon = null;
+            try
+            {
+                //Create bitmap, kind of canvas
+                Bitmap bitmap = new Bitmap(32, 32);
 
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            Icon icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            //System.Drawing.Font drawFont = new System.Drawing.Font("Calibri", 14, FontStyle.Bold);
-            System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 14, FontStyle.Bold);
-            System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
+                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+                Icon icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+                //System.Drawing.Font drawFont = new System.Drawing.Font("Calibri", 14, FontStyle.Bold);
+                System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 14, FontStyle.Bold);
+                System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
 
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(bitmap);
+                System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(bitmap);
 
-            graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+                graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 
-            graphics.DrawIcon(icon, new Rectangle(0, 0, 32, 32));
-            graphics.DrawString(text, drawFont, drawBrush, 0, 4);
-            
-            //To Save icon to disk
-            bitmap.Save("icon.ico", System.Drawing.Imaging.ImageFormat.Icon);
+                graphics.DrawIcon(icon, new Rectangle(0, 0, 32, 32));
+                graphics.DrawString(text, drawFont, drawBrush, 0, 4);
 
-            Icon createdIcon = Icon.FromHandle(bitmap.GetHicon());
+                //To Save icon to disk
+                bitmap.Save("icon.ico", System.Drawing.Imaging.ImageFormat.Icon);
 
-            drawFont.Dispose();
-            drawBrush.Dispose();
-            graphics.Dispose();
-            bitmap.Dispose();
+                createdIcon = Icon.FromHandle(bitmap.GetHicon());
 
+                drawFont.Dispose();
+                drawBrush.Dispose();
+                graphics.Dispose();
+                bitmap.Dispose();
+
+                return createdIcon;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return createdIcon;
         }
 

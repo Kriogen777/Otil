@@ -112,32 +112,35 @@ namespace AIOSystemUtility3
         void iconDrawTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             iconDrawTimer.Stop(); // Keeps the timer from spawning many threads all waiting for the locks
+            
             if (notifyIcon1 != null)
             {
+                Icon tempIcon = null;
                 if (trayMeasure == 0)
                 {
                     CPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(CPU.CurrentUtilizationPercent.ToString("0."));
+                    tempIcon = Utils.GetIcon(CPU.CurrentUtilizationPercent.ToString("0."));
                     CPU.Lock.Release();
                 }
                 else if (trayMeasure == 1)
                 {
                     CPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0.°"));
+                    tempIcon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0.°"));
                     CPU.Lock.Release();
                 }
                 else if (trayMeasure == 2)
                 {
                     GPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(GPU.Utilization.ToString("0."));
+                    tempIcon = Utils.GetIcon(GPU.Utilization.ToString("0."));
                     GPU.Lock.Release();
                 }
                 else if (trayMeasure == 3)
                 {
                     GPU.Lock.WaitOne();
-                    notifyIcon1.Icon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0.°"));
+                    tempIcon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0.°"));
                     GPU.Lock.Release();
                 }
+                if (tempIcon != null) notifyIcon1.Icon = tempIcon;
             }
             iconDrawTimer.Start();
         }

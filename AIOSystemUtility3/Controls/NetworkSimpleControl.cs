@@ -35,6 +35,7 @@ namespace AIOSystemUtility3
 
         void UpdateGraph_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            UpdateGraph.Stop();
             NET.Lock.WaitOne();
             float sumU = 0;
             float sumD = 0;
@@ -48,6 +49,7 @@ namespace AIOSystemUtility3
             grapher1.UpdateGraph(0, sumD);
             grapher1.UpdateGraph(1, sumU);
             NET.Lock.Release();
+            UpdateGraph.Start();
         }
 
         public void Update(Scraper s)

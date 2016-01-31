@@ -30,9 +30,11 @@ namespace AIOSystemUtility3
 
         void UpdateGraph_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+            UpdateGraph.Stop();
             RAM.Lock.WaitOne();
             grapher1.UpdateGraph(0, RAM.TotalPercentUtilization);
             RAM.Lock.Release();
+            UpdateGraph.Start();
         }
 
         public void Update(Scraper s)
