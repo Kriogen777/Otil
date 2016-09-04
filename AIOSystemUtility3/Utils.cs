@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace AIOSystemUtility3
 {
@@ -19,8 +12,9 @@ namespace AIOSystemUtility3
         /// <summary>
         /// Black magic that lets us ignore issues where something is wrong 
         /// without surrounding every single line in a try-catch.
-        /// 
+        /// <para>
         /// Don't try this at home folks.
+        /// </para>
         /// Source: http://stackoverflow.com/questions/117173/c-try-catch-every-line-of-code-without-individual-try-catch-blocks
         /// </summary>
         public static void Try(VoidDelegate v)
@@ -82,12 +76,11 @@ namespace AIOSystemUtility3
                 Bitmap bitmap = new Bitmap(32, 32);
 
                 System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-                Icon icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-                //System.Drawing.Font drawFont = new System.Drawing.Font("Calibri", 14, FontStyle.Bold);
-                System.Drawing.Font drawFont = new System.Drawing.Font("Arial", 14, FontStyle.Bold);
-                System.Drawing.SolidBrush drawBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
+                Icon icon = ((Icon)(resources.GetObject("notifyIcon1.Icon")));
+                Font drawFont = new Font("Arial", 14, FontStyle.Bold);
+                SolidBrush drawBrush = new SolidBrush(Color.White);
 
-                System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(bitmap);
+                Graphics graphics = Graphics.FromImage(bitmap);
 
                 graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 

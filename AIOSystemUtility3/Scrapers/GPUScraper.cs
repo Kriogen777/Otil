@@ -123,19 +123,19 @@ namespace AIOSystemUtility3
                             }
 
                             // Load
-                            if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Core"))
+                            if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Core") && sensor.Value != null)
                             {
                                 Utilization = (double)(float)sensor.Value;
                             }
 
                             // Fan percent
-                            if (sensor.SensorType == SensorType.Control && sensor.Name.Equals("GPU Fan"))
+                            if (sensor.SensorType == SensorType.Control && sensor.Name.Equals("GPU Fan") && sensor.Value != null)
                             {
                                 FanPercent = (double)(float)sensor.Value;
                             }
 
                             // Fan rpm
-                            if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("GPU Fan"))
+                            if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("GPU Fan") && sensor.Value != null)
                             {
                                 FanSpeed = (double)(float)sensor.Value;
                             }

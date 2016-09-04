@@ -16,7 +16,7 @@ namespace AIOSystemUtility3
             Width = parent.Width - 4;
             if (process.ProcessIcon != null)
             {
-                ProcessIcon.Image = process.ProcessIcon.ToBitmap();
+                Utils.Try(() => ProcessIcon.Image = process.ProcessIcon.ToBitmap());
             }
             Update(process);
         }
