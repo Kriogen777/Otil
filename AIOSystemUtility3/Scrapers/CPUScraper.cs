@@ -1,6 +1,5 @@
 ﻿using OpenHardwareMonitor.Hardware;
 using System;
-using System.Collections.Generic;
 using System.Management;
 using System.Timers;
 namespace AIOSystemUtility3

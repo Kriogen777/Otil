@@ -63,7 +63,7 @@ namespace AIOSystemUtility3
                     }
                     catch (Exception ex)
                     {
-                        //Console.WriteLine("Error fetching icon: " + ex.Message);
+                        Console.WriteLine("Error fetching icon: " + ex.Message);
                     }
 
                     temp.CheckedThisUpdate = true;

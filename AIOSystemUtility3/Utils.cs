@@ -63,49 +63,5 @@ namespace AIOSystemUtility3
 
         [DllImport("user32.dll")]
         private static extern bool AnimateWindow(IntPtr handle, int msec, int flags);
-
-
-
-        // Solution to draw text onto an Icon from : http://stackoverflow.com/a/5966965/4331033
-        public static Icon GetIcon(string text)
-        {
-            Icon createdIcon = null;
-            try
-            {
-                //Create bitmap, kind of canvas
-                Bitmap bitmap = new Bitmap(32, 32);
-
-                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-                Icon icon = ((Icon)(resources.GetObject("notifyIcon1.Icon")));
-                Font drawFont = new Font("Arial", 14, FontStyle.Bold);
-                SolidBrush drawBrush = new SolidBrush(Color.White);
-
-                Graphics graphics = Graphics.FromImage(bitmap);
-
-                graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-
-                graphics.DrawIcon(icon, new Rectangle(0, 0, 32, 32));
-                graphics.DrawString(text, drawFont, drawBrush, 0, 4);
-
-                //To Save icon to disk
-                bitmap.Save("icon.ico", System.Drawing.Imaging.ImageFormat.Icon);
-
-                createdIcon = Icon.FromHandle(bitmap.GetHicon());
-
-                drawFont.Dispose();
-                drawBrush.Dispose();
-                graphics.Dispose();
-                bitmap.Dispose();
-
-                return createdIcon;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return createdIcon;
-        }
-
-
     }
 }

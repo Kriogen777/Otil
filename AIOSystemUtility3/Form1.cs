@@ -119,25 +119,25 @@ namespace AIOSystemUtility3
                 if (trayMeasure == 0)
                 {
                     CPU.Lock.WaitOne();
-                    tempIcon = Utils.GetIcon(CPU.CurrentUtilizationPercent.ToString("0."));
+                    tempIcon = GetIcon(CPU.CurrentUtilizationPercent.ToString("0."));
                     CPU.Lock.Release();
                 }
                 else if (trayMeasure == 1)
                 {
                     CPU.Lock.WaitOne();
-                    tempIcon = Utils.GetIcon(CPU.CPUTempDouble.ToString("0.°"));
+                    tempIcon = GetIcon(CPU.CPUTempDouble.ToString("0.°"));
                     CPU.Lock.Release();
                 }
                 else if (trayMeasure == 2)
                 {
                     GPU.Lock.WaitOne();
-                    tempIcon = Utils.GetIcon(GPU.Utilization.ToString("0."));
+                    tempIcon = GetIcon(GPU.Utilization.ToString("0."));
                     GPU.Lock.Release();
                 }
                 else if (trayMeasure == 3)
                 {
                     GPU.Lock.WaitOne();
-                    tempIcon = Utils.GetIcon(GPU.GPUTempDouble.ToString("0.°"));
+                    tempIcon = GetIcon(GPU.GPUTempDouble.ToString("0.°"));
                     GPU.Lock.Release();
                 }
                 if (tempIcon != null) notifyIcon1.Icon = tempIcon;
@@ -409,5 +409,66 @@ namespace AIOSystemUtility3
             gPUTemperatureToolStripMenuItem.Checked = true;
             trayMeasure = 3;
         }
+
+        // https://msdn.microsoft.com/en-us/library/system.drawing.icon.fromhandle(v=vs.90).aspx
+        [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = CharSet.Auto)]
+        extern static bool DestroyIcon(IntPtr handle);
+
+        // Solution to draw text onto an Icon from : http://stackoverflow.com/a/5966965/4331033
+        // Solution for GDI Object leak limit : http://stackoverflow.com/a/23256773/4331033
+        Icon createdIcon = null;
+        private Icon GetIcon(string text)
+        {
+            try
+            {
+                // Destroy the Icon first
+                if (createdIcon != null)
+                {
+                    DestroyIcon(createdIcon.Handle);
+                }
+
+                //Create bitmap, kind of canvas
+                Bitmap bitmap = new Bitmap(32, 32);
+
+                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+                Icon icon = ((Icon)(resources.GetObject("notifyIcon1.Icon")));
+                Font drawFont = new Font("Arial", 14, FontStyle.Bold);
+                SolidBrush drawBrush = new SolidBrush(Color.White);
+
+                Graphics graphics = Graphics.FromImage(bitmap);
+
+                graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+
+                graphics.DrawIcon(icon, new Rectangle(0, 0, 32, 32));
+                graphics.DrawString(text, drawFont, drawBrush, 0, 4);
+
+                IntPtr iconPtr = bitmap.GetHicon();
+                createdIcon = Icon.FromHandle(iconPtr);
+                
+                drawFont.Dispose();
+                drawBrush.Dispose();
+                graphics.Dispose();
+                bitmap.Dispose();
+
+                return createdIcon;
+            }
+            catch (Exception e)
+            {
+                try
+                {
+                    Console.WriteLine("Origin message: " + e.Message);
+                    System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+                    createdIcon = ((Icon)(resources.GetObject("notifyIcon1.Icon")));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Secondary message: " + ex.Message);
+                    // Destroy the Icon
+                    DestroyIcon(createdIcon.Handle);
+                }
+            }
+            return createdIcon;
+        }
+
     }
 }
