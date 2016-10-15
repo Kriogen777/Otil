@@ -11,11 +11,3 @@ Data flow:
 
 TODO:
 * CLEAN THE REPO
-* Per process network use
-* Optimise processes and services refresh redraws
-* Network wan/lan differenciation
-* Network per process limits (like netlimiter)
-* Speedfan functionality
-* Overlay functionality (dx and opengl hooks)
-* Mobile app with a https server
-* Maybe turn it into a library/microservice with a web front end (bootstrap, angular, react, etc.)
